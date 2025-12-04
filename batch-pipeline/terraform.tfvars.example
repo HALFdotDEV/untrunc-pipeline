@@ -1,0 +1,47 @@
+################################################################################
+# Untrunc Batch Pipeline - Example Configuration
+#
+# Copy this file to terraform.tfvars and customize for your environment.
+#
+# Generate API key hash:
+#   echo -n 'your-secret-api-key-here' | sha256sum | cut -d' ' -f1
+################################################################################
+
+# Required: S3 bucket names (must be globally unique)
+raw_bucket_name       = "mycompany-untrunc-raw-prod"
+processed_bucket_name = "mycompany-untrunc-processed-prod"
+
+# Required: ECR image URI (after pushing the container)
+untrunc_image_uri = "123456789012.dkr.ecr.us-east-1.amazonaws.com/untrunc:latest"
+
+# Required: API key hash for authentication
+# Generate with: echo -n 'your-secret-key' | sha256sum | cut -d' ' -f1
+api_key_hash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+
+# Optional: AWS region (default: us-east-1)
+aws_region = "us-east-1"
+
+# Optional: Environment name for resource naming
+environment = "prod"
+
+# Optional: Job resource configuration
+# Adjust based on your video file sizes
+job_vcpu                 = 4      # vCPUs per job (1, 2, 4, 8, 16)
+job_memory_mb            = 8192   # Memory in MB (for large files, use 16384 or 30720)
+job_ephemeral_storage_gb = 100    # Temp storage in GB (max 200)
+job_timeout_seconds      = 7200   # 2 hours default
+job_retry_attempts       = 2      # Retry failed jobs
+
+# Optional: Batch compute environment
+batch_max_vcpus = 16  # Maximum concurrent vCPUs across all jobs
+
+# Optional: Notifications
+# Webhook URL for job completion notifications (must be HTTPS)
+webhook_url = ""
+
+# Email for failure alerts
+alert_email = ""
+
+# Optional: Data retention
+log_retention_days      = 30  # CloudWatch log retention
+raw_file_retention_days = 30  # Auto-delete raw files after N days
