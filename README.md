@@ -4,7 +4,7 @@
 
 **Version:** 1.0.0  
 **License:** MIT  
-**Last Updated:** December 2024
+**Last Updated:** December 2025
 
 ---
 
@@ -675,7 +675,7 @@ curl -X POST https://abc123.execute-api.us-east-1.amazonaws.com/prod/submit-batc
   -H "Content-Type: application/json" \
   -H "X-Api-Key: your-secret-key" \
   -d '{
-    "input_prefix": "session-2024-01-15/camera1",
+    "input_prefix": "session-2025-01-15/camera1",
     "reference_strategy": "smallest"
   }'
 ```
@@ -688,16 +688,16 @@ curl -X POST https://abc123.execute-api.us-east-1.amazonaws.com/prod/submit-batc
   "job_id": "untrunc-a1b2c3d4e5f6",
   "batch_job_id": "12345678-1234-1234-1234-123456789012",
   "input_bucket": "mycompany-untrunc-raw-prod",
-  "input_prefix": "session-2024-01-15/camera1",
+  "input_prefix": "session-2025-01-15/camera1",
   "output_bucket": "mycompany-untrunc-processed-prod",
-  "output_prefix": "session-2024-01-15/camera1",
-  "reference_file": "session-2024-01-15/camera1/clip001.mp4",
+  "output_prefix": "session-2025-01-15/camera1",
+  "reference_file": "session-2025-01-15/camera1/clip001.mp4",
   "reference_size_mb": 45.67,
   "reference_strategy": "smallest",
   "files_to_repair": [
-    "session-2024-01-15/camera1/clip002.mp4",
-    "session-2024-01-15/camera1/clip003.mp4",
-    "session-2024-01-15/camera1/clip004.mp4"
+    "session-2025-01-15/camera1/clip002.mp4",
+    "session-2025-01-15/camera1/clip003.mp4",
+    "session-2025-01-15/camera1/clip004.mp4"
   ],
   "file_count": 3,
   "total_size_mb": 1536.89,
@@ -733,20 +733,20 @@ When a job completes (success, partial, or failure), a notification is sent to t
   "status": "COMPLETED",
   "message": "All 3 files repaired successfully",
   "input_bucket": "mycompany-untrunc-raw-prod",
-  "input_prefix": "session-2024-01-15/camera1",
+  "input_prefix": "session-2025-01-15/camera1",
   "output_bucket": "mycompany-untrunc-processed-prod",
-  "output_prefix": "session-2024-01-15/camera1",
-  "reference_file": "session-2024-01-15/camera1/clip001.mp4",
+  "output_prefix": "session-2025-01-15/camera1",
+  "reference_file": "session-2025-01-15/camera1/clip001.mp4",
   "total_files": 3,
   "success_count": 3,
   "failure_count": 0,
   "success_files": [
-    "session-2024-01-15/camera1/clip002.mp4",
-    "session-2024-01-15/camera1/clip003.mp4",
-    "session-2024-01-15/camera1/clip004.mp4"
+    "session-2025-01-15/camera1/clip002.mp4",
+    "session-2025-01-15/camera1/clip003.mp4",
+    "session-2025-01-15/camera1/clip004.mp4"
   ],
   "failed_files": [],
-  "timestamp": "2024-01-15T14:30:00Z"
+  "timestamp": "2025-01-15T14:30:00Z"
 }
 ```
 
@@ -904,7 +904,7 @@ All components log to CloudWatch in structured JSON format:
 
 ```json
 {
-  "timestamp": "2024-01-15T14:30:00Z",
+  "timestamp": "2025-01-15T14:30:00Z",
   "level": "INFO",
   "job_id": "untrunc-a1b2c3d4e5f6",
   "message": "Repair successful",
@@ -1177,7 +1177,7 @@ print(lambda_function.lambda_handler(event, None))
 
 ## Changelog
 
-### v1.0.0 (December 2024)
+### v1.0.0 (December 2025)
 
 - Initial production release
 - AWS Batch pipeline with Fargate Spot
@@ -1193,7 +1193,7 @@ print(lambda_function.lambda_handler(event, None))
 
 MIT License
 
-Copyright (c) 2024 Jeremiah Kroesche | Halfservers LLC
+Copyright (c) 2025 Jeremiah Kroesche | Halfservers LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
